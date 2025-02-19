@@ -1,0 +1,8 @@
+ *.pyc
+ __pycache__/
+ *.sqlite3
+ venv/
+ .env
+ media/ # If you are storing user-uploaded media locally
+ db.sqlite3
+ local_settings.py

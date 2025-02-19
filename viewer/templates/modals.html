@@ -1,0 +1,21 @@
+<!-- /viewer/templates/modals.html -->
+<div id="login-modal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" id="close">&times;</span>
+        <h2>Login</h2>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {{ login_form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</div>
+<!-- Add other modals here in the future -->

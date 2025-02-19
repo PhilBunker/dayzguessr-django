@@ -1,0 +1,8 @@
+Watching for file changes with StatReloader
+[18/Feb/2025 05:12:20] "GET / HTTP/1.1" 301 0
+[18/Feb/2025 05:12:29] "GET / HTTP/1.1" 301 0
+Watching for file changes with StatReloader
+Error: That port is already in use.
+Watching for file changes with StatReloader
+[18/Feb/2025 05:18:49] "GET / HTTP/1.1" 301 0
+[18/Feb/2025 05:19:12] "GET / HTTP/1.1" 301 0

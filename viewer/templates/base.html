@@ -1,0 +1,28 @@
+<!-- /viewer/templates/base.html (no changes needed here) -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Panoramic View</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <div class="top-bar">
+        {% if user.is_authenticated %}
+            Welcome, {{ user.username }}! <a href="{% url 'logout' %}" id="logout-link" style="float: right;">Logout</a>
+        {% else %}
+            <a href="#" id="login-link" style="float: right;">Login</a>
+        {% endif %}
+    </div>
+
+    {% include "modals.html" %}
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <script src="{% static 'js/modals.js' %}"></script>
+</body>
+</html>

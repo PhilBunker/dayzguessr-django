@@ -1,0 +1,11 @@
+<!-- viewer/templates/panoramic_view.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <canvas id="canvas"></canvas>
+    <script type="module">
+        window.panoImageUrl = "{% static 'images/pano.jpg' %}";
+    </script>
+    <script type="module" src="{% static 'js/panorama.js' %}"></script>
+{% endblock %}
