@@ -15,6 +15,28 @@ body {
     z-index: 10; /* Ensure the top bar is above the canvas */
 }
 
+/* New rule to position the icon links in the top-bar */
+.top-bar a {
+    position: absolute; /* Position them absolutely within top-bar */
+    right: 28px;      /* Align to the right edge, with some spacing (adjust as needed) */
+    top: 50%;         /* Vertically center them */
+    transform: translateY(-50%); /* Fine-tune vertical centering */
+    text-decoration: none; /* Remove default link underline */
+    color: white;       /* Keep link text white if you decide to show text */
+}
+
+
+.top-bar a i.fas { /* Icon styling */
+    font-size: 1.2em; /* Slightly larger icons */
+    color: white;       /* Default icon color */
+    margin-left: 5px;  /* Add a little space if you add text next to icons later */
+}
+
+.top-bar a:hover i.fas { /* Hover effect for icons */
+    color: lightgray; /* Change icon color on hover */
+}
+
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place even when scrolling */
@@ -25,7 +47,7 @@ body {
     height: 100%;
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    pointer-events: none; /* Add this line to make modal transparent to pointer events when hidden */
+    pointer-events: none; /* Make modal transparent to pointer events when hidden */
 }
 
 .modal-content {
@@ -53,5 +75,58 @@ body {
 }
 
 #canvas {
-    pointer-events: none; /* VERY IMPORTANT */
+    /* pointer-events: none;  <- ENSURE THIS LINE IS STILL REMOVED! */
+}
+
+/* Map Container Styles */
+#map-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 18vw; /* Initial width is 1/5 of viewport width */
+    height: 12vw; /* Proportional height to maintain aspect ratio (approx) */
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden; /* Keep overflow hidden initially */
+    transition: width 0.5s ease, height 0.5s ease; /* Smooth transition for width and height */
+    z-index: 9; /* Below top bar but above canvas, adjust if needed */
+}
+
+#map-container:hover {
+    width: 35vw; /* Expanded width is now closer to 2/5 of viewport width - reduced from 1/2 */
+    height: 23.33vw; /* Proportional height to maintain aspect ratio (approx) */
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly darker on hover */
+}
+
+/* Submit Guess Button Styles */
+#submit-guess-button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #666; /* Slightly lighter gray button */
+    color: white;
+    border: none;
+    border-radius: 7px; /* Slightly rounder corners */
+    cursor: pointer;
+    opacity: 1; /* Initially visible */
+    transition: opacity 0.5s ease, background-color 0.3s ease, width 0.3s ease; /* Fade, background, and width transition */
+    width: 50%; /* Initial width of the button, reduced from 60% */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+}
+
+#map-container:not(:hover) #submit-guess-button {
+    opacity: 1; /* Always visible, regardless of hover on the container itself */
+}
+
+
+#submit-guess-button:hover {
+    background-color: #888; /* Lighter gray on button hover, from 777 to 888 */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3); /* Slightly stronger shadow on hover */
+}
+
+#map-container:hover #submit-guess-button {
+    width: 70%; /* Wider button when map-container is hovered, reduced from 80% */
 }

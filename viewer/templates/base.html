@@ -1,4 +1,4 @@
-<!-- /viewer/templates/base.html (no changes needed here) -->
+<!-- /viewer/templates/base.html -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -6,13 +6,19 @@
     <meta charset="UTF-8">
     <title>Panoramic View</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="top-bar">
         {% if user.is_authenticated %}
-            Welcome, {{ user.username }}! <a href="{% url 'logout' %}" id="logout-link" style="float: right;">Logout</a>
+            Welcome, {{ user.username }}!
+            <a href="{% url 'logout' %}" id="logout-link" title="Logout">
+                <i class="fas fa-right-from-bracket"></i>
+            </a>
         {% else %}
-            <a href="#" id="login-link" style="float: right;">Login</a>
+            <a href="#" id="login-link" title="Login">
+                <i class="fas fa-right-to-bracket"></i>
+            </a>
         {% endif %}
     </div>
 

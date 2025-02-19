@@ -1,1 +1,1 @@
-./repgen.sh viewer/views.py viewer/templates/* viewer/static/viewer/js/* viewer/static/css/* dayzguessr/settings.py 
+./repgen.sh viewer/views.py viewer/templates/* viewer/static/js/* viewer/static/css/* dayzguessr/settings.py 

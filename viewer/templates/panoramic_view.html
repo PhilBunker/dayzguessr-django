@@ -4,8 +4,13 @@
 
 {% block content %}
     <canvas id="canvas"></canvas>
+
+    <div id="map-container">
+        <button id="submit-guess-button">Submit Guess</button>
+    </div>
+
     <script type="module">
-        window.panoImageUrl = "{% static 'images/pano.jpg' %}";
+        window.panoImageUrl = "{% static 'images/locations/dayz/wells/0886811348/pano.jpg' %}";
     </script>
     <script type="module" src="{% static 'js/panorama.js' %}"></script>
 {% endblock %}
