@@ -1,10 +1,11 @@
-# viewer/views.py (no changes needed here, but included for completeness)
+# viewer/views.py
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.urls import reverse
+from django.http import JsonResponse
 
 def panoramic_view(request):
     visits = request.session.get('visits', 0)
@@ -39,3 +40,8 @@ def logout_view(request):
     logout(request)
     #Always return to panoramic view, to possibly show the ads, regardless of whether you are logged in
     return redirect(reverse('panoramic_view'))
+
+def location_selected(request, game, map_name, location_type):
+    # Replace this with your actual game logic
+    message = f"Game: {game}, Map: {map_name}, Location Type: {location_type}"
+    return JsonResponse({'message': message})
